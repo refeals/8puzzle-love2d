@@ -4,7 +4,7 @@ end
 
 function love.load()
   require 'board'
-  createBoard()
+  CreateBoard()
   love.graphics.setBackgroundColor(255, 255, 255)
 end
 
