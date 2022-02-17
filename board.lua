@@ -7,17 +7,13 @@ function createBoard()
   board.x = 0
   board.y = 0
 
-  board.pieces = {
-    createPiece(1, board.x + pieceSize * 0, board.y + pieceSize * 0),
-    createPiece(2, board.x + pieceSize * 1, board.y + pieceSize * 0),
-    createPiece(3, board.x + pieceSize * 2, board.y + pieceSize * 0),
-    createPiece(4, board.x + pieceSize * 0, board.y + pieceSize * 1),
-    createPiece(5, board.x + pieceSize * 1, board.y + pieceSize * 1),
-    createPiece(6, board.x + pieceSize * 2, board.y + pieceSize * 1),
-    createPiece(7, board.x + pieceSize * 0, board.y + pieceSize * 2),
-    createPiece(8, board.x + pieceSize * 1, board.y + pieceSize * 2),
-    createPiece(9, board.x + pieceSize * 2, board.y + pieceSize * 2)
-  }
+  board.pieces = {}
+  for i=1, 9 do
+    local offsetX = (i - 1) % 3
+    local offsetY = math.floor((i - 1) / 3)
+    local ps = createPiece(i, board.x + pieceSize * offsetX, board.y + pieceSize * offsetY)
+    table.insert(board.pieces, ps)
+  end
 end
 
 function board:update(dt)
