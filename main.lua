@@ -9,12 +9,12 @@ function love.load()
 end
 
 function love.update(dt)
-  board:update()
+  Board:update()
 end
 
 function love.draw()
   -- love.graphics.setColor(255, 0, 0)
   -- love.graphics.print(rawget(board, ), 0, 0)
   -- love.graphics.rectangle("fill", 0, 0, 200, 200)
-  board:draw()
+  Board:draw()
 end
